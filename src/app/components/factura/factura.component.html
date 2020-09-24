@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <form [formGroup]="factura">
+  <form [formGroup]="factura" (ngSubmit)=" guardarFactura() ">
     <div class="row justify-content-md-center">
       <div class="col-md-3">
         <h3>Registrar Factura</h3>

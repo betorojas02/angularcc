@@ -45,5 +45,10 @@ export class FacturaComponent implements OnInit {
       this.datoPlato.push(nuevo);
   }
 
+  guardarFactura(){
+    console.log(this.factura.value);
+    this.factura.reset();
+  }
+
 
 }
