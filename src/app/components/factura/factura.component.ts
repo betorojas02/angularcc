@@ -18,9 +18,15 @@ export class FacturaComponent implements OnInit {
   constructor(private cliente: ClientesService,
               private fb: FormBuilder) {
 
-
                 this.factura = this.fb.group({
                   cliente : [''],
+                  txtNombreCliente: [''],
+                  txtPrimerApellidoCliente: [''],
+                  txtSegundoApellidoCliente: [''],
+                  txtObservacionesCliente: [''],
+                  txtNombreCamarero: [''],
+                  txtPrimerApellidoCamarero: [''],
+                  txtSegundoApellidoCamarero: [''],
 
                 });
 
@@ -50,6 +56,11 @@ export class FacturaComponent implements OnInit {
       alert('Digite todos los campos para ingresar un plato');
     }
 
+  }
+
+  guardarFactura(){
+    console.log(this.factura.value);
+    this.factura.reset();
   }
 
 
