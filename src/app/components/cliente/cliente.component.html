@@ -16,9 +16,8 @@
       <thead class="thead-dark">
         <tr>
 
-          <th scope="col">Nombre Camarero</th>
-          <th scope="col">Total Camarero</th>
-          <th scope="col">Fecha</th>
+          <th scope="col">Nombre Cliente</th>
+          <th scope="col">Total Cliente</th>
         </tr>
       </thead>
       <tbody *ngFor="let item of  this.datos" >
@@ -26,22 +25,13 @@
 
           <td>{{item.nombre}}</td>
           <td>{{item.suma}}</td>
-          <td>{{item.fecha}}</td>
+
         </tr>
       </tbody>
     </table>
 
-    <ng-select [items]="meses" bindLabel="mes" autofocus bindValue="id"
-    placeholder="Seleccione un mes"  [(ngModel)]="mes"  (change)="onChange($event)">
-
-    </ng-select>
 
 
     </div>
   </div>
 </div>
-
-
-
-
-

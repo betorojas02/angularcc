@@ -33,7 +33,7 @@ export class FacturaComponent implements OnInit {
 
 
    listarClientes () {
-    this.cliente.getListComentarios().subscribe((data:any) => {
+    this.cliente.getListClientes().subscribe((data:any) => {
       this.clientes = data;
     });
   }

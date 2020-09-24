@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {environment} from '../../environments/environment';
+import { environment } from '../../environments/environment';
 import { Cliente } from '../models/cliente';
 import { Observable } from 'rxjs';
 @Injectable({
@@ -9,21 +9,28 @@ import { Observable } from 'rxjs';
 export class ClientesService {
 
 
- httpOpstions = {
-   headers:  new Headers({
-     'Content-Type' : 'aplication/json'
-   })
- }
+  httpOpstions = {
+    headers: new Headers({
+      'Content-Type': 'aplication/json'
+    })
+  }
 
   constructor(private http: HttpClient) { }
 
 
 
 
-    getListComentarios() {
+  getListClientes() {
 
-    return    this.http.get(environment.url + 'api/cliente');
+    return this.http.get(environment.url + 'api/cliente');
 
+  }
+
+
+  getlistClientesFacturasMayores() {
+
+
+    return this.http.get(environment.url + 'api/cliente/clientesgatos');
   }
 
 

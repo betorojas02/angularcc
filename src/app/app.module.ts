@@ -9,6 +9,7 @@ import { FacturaComponent } from './components/factura/factura.component';
 import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CamareroComponent } from './components/camarero/camarero.component';
+import { ClienteComponent } from './components/cliente/cliente.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { CamareroComponent } from './components/camarero/camarero.component';
     NavbarComponent,
     FacturaComponent,
     CamareroComponent,
+    ClienteComponent,
 
   ],
   imports: [
