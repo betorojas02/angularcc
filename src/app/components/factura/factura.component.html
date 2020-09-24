@@ -1,0 +1,215 @@
+<div class="container-fluid">
+  <form [formGroup]="factura">
+    <div class="row justify-content-md-center">
+      <div class="col-md-3">
+        <h3>Registrar Factura</h3>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-4 bordeado">
+        <!--
+
+        Seccion del cliente
+
+        -->
+        <div class="row justify-content-md-center">
+          <div class="col-md-9">
+            <h4>Informacion de Cliente</h4>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cboClienteRegistrado">Cliente registrado</label>
+          <ng-select [items]="clientes" bindLabel="nombre" autofocus bindValue="id_cliente"
+            placeholder="Seleccione un cliente" formControlName="cliente">
+            <ng-template ng-option-tmp let-item="item" let-search="searchTerm">
+              <div><span>Nombre: </span><span>{{item.nombre}} {{item.apellido1}} {{item.apellido2}}</span></div>
+
+            </ng-template>
+          </ng-select>
+          <small id="ayudaClienteReg" class="form-text text-muted">Seleccione un cliente registrado en la
+            aplicación.</small>
+        </div>
+        <div id="datosCliente" v-if="factura.idCliente.idCliente <= 0">
+          <div class="form-group">
+            <label for="txtNombreCliente">Nombre</label>
+            <input type="text" class="form-control" id="txtNombreCliente" aria-describedby="ayudaNombreCli"
+              placeholder="Ingrese un nombre" required />
+            <small id="ayudaNombreCli" class="form-text text-muted">Primer y segundo nombre del cliente.</small>
+          </div>
+          <div class="form-group">
+            <label for="txtPrimerApellidoCliente">Primer Apellido</label>
+            <input type="text" class="form-control" id="txtPrimerApellidoCliente"
+              aria-describedby="ayudaPrimerApellidoCli" placeholder="Ingrese un primer apellido" required />
+            <small id="ayudaPrimerApellidoCli" class="form-text text-muted">Primer apellido del cliente.</small>
+          </div>
+          <div class="form-group">
+            <label for="txtSegundoApellidoCliente">Segundo Apellido</label>
+            <input type="text" class="form-control" id="txtSegundoApellidoCliente"
+              aria-describedby="ayudaSegundoApellidoCli" placeholder="Ingrese un segundo apellido" required
+              v-model="factura.idCliente.segundoApellido" />
+            <small id="ayudaSegundoApellidoCli" class="form-text text-muted">Segundo apellido del cliente.</small>
+          </div>
+          <div class="form-group">
+            <label for="txtObservacionesCliente">Observaciones</label>
+            <input type="text" class="form-control" id="txtObservacionesCliente"
+              aria-describedby="ayudaObservacionesCli" placeholder="Observacion, Observacion, Observacion" required
+              />
+
+          </div>
+        </div>
+      </div>
+      <!--
+
+        Seccion del camarero
+
+      -->
+      <div class="col-md-4">
+        <div class="row justify-content-md-center">
+          <div class="col-md-10">
+            <h4>Informacion de Camarero</h4>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cboCamareroRegistrado">Camarero registrado</label>
+          <select class="form-control" id="cboCamareroRegistrado" aria-describedby="ayudaCamareroReg"
+            v-model="factura.idCamarero.idCamarero">
+            <option :value="0">Seleccione...</option>
+            <option>
+
+            </option>
+          </select>
+          <small id="ayudaCamareroReg" class="form-text text-muted">Seleccione un camarero registrado en la
+            aplicación.</small>
+        </div>
+        <div id="datosCamarero" v-if="factura.idCamarero.idCamarero <= 0">
+          <div class="form-group">
+            <label for="txtNombreCamarero">Nombre</label>
+            <input type="text" class="form-control" id="txtNombreCamarero" aria-describedby="ayudaNombreCam"
+              placeholder="Ingrese un nombre" required v-model="factura.idCamarero.nombre" />
+            <small id="ayudaNombreCam" class="form-text text-muted">Primer y segundo nombre del camarero.</small>
+          </div>
+          <div class="form-group">
+            <label for="txtPrimerApellidoCamarero">Primer Apellido</label>
+            <input type="text" class="form-control" id="txtPrimerApellidoCamarero"
+              aria-describedby="ayudaPrimerApellidoCam" placeholder="Ingrese un primer apellido" required
+              v-model="factura.idCamarero.primerApellido" />
+            <small id="ayudaPrimerApellidoCam" class="form-text text-muted">Primer apellido del camarero.</small>
+          </div>
+          <div class="form-group">
+            <label for="txtSegundoApellidoCamarero">Segundo Apellido</label>
+            <input type="text" class="form-control" id="txtSegundoApellidoCamarero"
+              aria-describedby="ayudaSegundoApellidoCam" placeholder="Ingrese un segundo apellido" required
+              v-model="factura.idCamarero.segundoApellido" />
+            <small id="ayudaSegundoApellidoCam" class="form-text text-muted">Segundo nombre del camarero.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--
+
+      Informacion de las mesas y ordenes
+
+    -->
+    <div class="row justify-content-md-center">
+      <div class="col-md-4 bordeado">
+        <!--
+
+          Seccion de mesas
+
+        -->
+        <div class="row justify-content-md-center">
+          <div class="col-md-9">
+            <h4>Orden del cliente</h4>
+          </div>
+          <div class="form-group separador">
+            <label for="txtPlato">Plato</label>
+            <input type="text" class="form-control" id="txtPlato" aria-describedby="ayudaPlato"
+              placeholder="Nombre plato" v-model="plato" />
+            <small id="ayudaPlato" class="form-text text-muted">Plato ordenado.</small>
+          </div>
+          <div class="form-group separador">
+            <label for="txtImporte">Costo</label>
+            <input type="number" class="form-control" id="txtImporte" aria-describedby="ayudaImporte"
+              placeholder="$_______" v-model="importe" />
+            <small id="ayudaImporte" class="form-text text-muted">Valor del plato.</small>
+          </div>
+          <div class="form-group separador">
+            <button type="button" class="btn btn-primary">
+              Cargar Plato
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 bordeado">
+        <!--
+
+          Informacion de las ordenes
+
+        -->
+        <div class="row justify-content-md-center">
+          <div class="col-md-9">
+            <h4>Mesa del cliente</h4>
+          </div>
+          <div class="form-group">
+            <label for="cboClienteRegistrado">Mesa</label>
+            <select class="form-control" id="cboClienteRegistrado" aria-describedby="ayudaClienteReg"
+              v-model="factura.idMesa.idMesa">
+              <option :value="0">Seleccione...</option>
+              <option v-for="mes in mesas" :key="mes.idMesa" :value="mes.idMesa"></option>
+            </select>
+            <small id="ayudaClienteReg" class="form-text text-muted">Seleccione un cliente registrado en la
+              aplicación.</small>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class="col-md-6">
+        <div class="table-responsive">
+          <table id="tblClientes" class="table table-hover">
+            <thead>
+              <th>Plato</th>
+              <th>Costo</th>
+            </thead>
+            <tbody>
+              <td></td>
+              <td></td>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div>
+      <!-- <div v-if="registrado === 1" class="alert alert-success" role="alert">
+        Se ha registrado una nueva factura
+      </div> -->
+      <!-- <div
+        v-else-if="registrado === 0"
+        class="alert alert-warning"
+        role="alert"
+      >
+        Debe ingresar por lo menos un plato
+      </div> -->
+      <!-- <div
+        v-else-if="registrado === -1"
+        class="alert alert-danger"
+        role="alert"
+      >
+        Error al registrar la factura
+      </div> -->
+    </div>
+    <div class="separador-extendido">
+      <div class="row justify-content-md-center">
+        <div class="col-md-6">
+          <button type="submit" class="btn btn-success">
+            Guardar factura
+          </button>
+          <button type="button" class="btn btn-danger">
+            Regresar
+          </button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>
