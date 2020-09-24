@@ -6,14 +6,16 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { FacturaComponent } from './components/factura/factura.component';
-
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CamareroComponent } from './components/camarero/camarero.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FacturaComponent,
+    CamareroComponent,
 
   ],
   imports: [
@@ -22,7 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     NgSelectModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
