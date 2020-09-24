@@ -41,8 +41,15 @@ export class FacturaComponent implements OnInit {
 
 
   metodoGuardatoPlato(plato: string, importe: string) {
+
+
+    if(plato != '' && importe != '' ) {
       const nuevo = new Plato(plato, importe);
       this.datoPlato.push(nuevo);
+    }else{
+      alert('Digite todos los campos para ingresar un plato');
+    }
+
   }
 
 
