@@ -33,26 +33,27 @@
           <div class="form-group">
             <label for="txtNombreCliente">Nombre</label>
             <input type="text" class="form-control" id="txtNombreCliente" aria-describedby="ayudaNombreCli"
-              placeholder="Ingrese un nombre" required />
+              placeholder="Ingrese un nombre" required  formControlName="txtNombreCliente"/>
             <small id="ayudaNombreCli" class="form-text text-muted">Primer y segundo nombre del cliente.</small>
           </div>
           <div class="form-group">
             <label for="txtPrimerApellidoCliente">Primer Apellido</label>
             <input type="text" class="form-control" id="txtPrimerApellidoCliente"
-              aria-describedby="ayudaPrimerApellidoCli" placeholder="Ingrese un primer apellido" required />
+              aria-describedby="ayudaPrimerApellidoCli" placeholder="Ingrese un primer apellido" required formControlName="txtPrimerApellidoCliente"/>
             <small id="ayudaPrimerApellidoCli" class="form-text text-muted">Primer apellido del cliente.</small>
           </div>
           <div class="form-group">
             <label for="txtSegundoApellidoCliente">Segundo Apellido</label>
             <input type="text" class="form-control" id="txtSegundoApellidoCliente"
               aria-describedby="ayudaSegundoApellidoCli" placeholder="Ingrese un segundo apellido" required
-              v-model="factura.idCliente.segundoApellido" />
+              v-model="factura.idCliente.segundoApellido" formControlName="txtSegundoApellidoCliente" />
             <small id="ayudaSegundoApellidoCli" class="form-text text-muted">Segundo apellido del cliente.</small>
           </div>
           <div class="form-group">
             <label for="txtObservacionesCliente">Observaciones</label>
             <input type="text" class="form-control" id="txtObservacionesCliente"
               aria-describedby="ayudaObservacionesCli" placeholder="Observacion, Observacion, Observacion" required
+              formControlName="txtObservacionesCliente"
               />
 
           </div>
@@ -85,21 +86,21 @@
           <div class="form-group">
             <label for="txtNombreCamarero">Nombre</label>
             <input type="text" class="form-control" id="txtNombreCamarero" aria-describedby="ayudaNombreCam"
-              placeholder="Ingrese un nombre" required v-model="factura.idCamarero.nombre" />
+              placeholder="Ingrese un nombre" required v-model="factura.idCamarero.nombre" formControlName="txtNombreCamarero" />
             <small id="ayudaNombreCam" class="form-text text-muted">Primer y segundo nombre del camarero.</small>
           </div>
           <div class="form-group">
             <label for="txtPrimerApellidoCamarero">Primer Apellido</label>
             <input type="text" class="form-control" id="txtPrimerApellidoCamarero"
               aria-describedby="ayudaPrimerApellidoCam" placeholder="Ingrese un primer apellido" required
-              v-model="factura.idCamarero.primerApellido" />
+              v-model="factura.idCamarero.primerApellido" formControlName="txtPrimerApellidoCamarero"/>
             <small id="ayudaPrimerApellidoCam" class="form-text text-muted">Primer apellido del camarero.</small>
           </div>
           <div class="form-group">
             <label for="txtSegundoApellidoCamarero">Segundo Apellido</label>
             <input type="text" class="form-control" id="txtSegundoApellidoCamarero"
               aria-describedby="ayudaSegundoApellidoCam" placeholder="Ingrese un segundo apellido" required
-              v-model="factura.idCamarero.segundoApellido" />
+              v-model="factura.idCamarero.segundoApellido"formControlName="txtSegundoApellidoCamarero" />
             <small id="ayudaSegundoApellidoCam" class="form-text text-muted">Segundo nombre del camarero.</small>
           </div>
         </div>

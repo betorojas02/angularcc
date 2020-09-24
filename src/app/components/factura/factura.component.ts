@@ -18,9 +18,15 @@ export class FacturaComponent implements OnInit {
   constructor(private cliente: ClientesService,
               private fb: FormBuilder) {
 
-
                 this.factura = this.fb.group({
                   cliente : [''],
+                  txtNombreCliente: [''],
+                  txtPrimerApellidoCliente: [''],
+                  txtSegundoApellidoCliente: [''],
+                  txtObservacionesCliente: [''],
+                  txtNombreCamarero: [''],
+                  txtPrimerApellidoCamarero: [''],
+                  txtSegundoApellidoCamarero: [''],
 
                 });
 
