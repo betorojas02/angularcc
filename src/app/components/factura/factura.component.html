@@ -124,17 +124,17 @@
           <div class="form-group separador">
             <label for="txtPlato">Plato</label>
             <input type="text" class="form-control" id="txtPlato" aria-describedby="ayudaPlato"
-              placeholder="Nombre plato" v-model="plato" />
+              placeholder="Nombre plato" v-model="plato" name="plato" #plato/>
             <small id="ayudaPlato" class="form-text text-muted">Plato ordenado.</small>
           </div>
           <div class="form-group separador">
             <label for="txtImporte">Costo</label>
             <input type="number" class="form-control" id="txtImporte" aria-describedby="ayudaImporte"
-              placeholder="$_______" v-model="importe" />
+              placeholder="$_______" v-model="importe" name="txtImporte" #txtImporte/>
             <small id="ayudaImporte" class="form-text text-muted">Valor del plato.</small>
           </div>
           <div class="form-group separador">
-            <button type="button" class="btn btn-primary">
+            <button type="button" class="btn btn-primary" (click)="metodoGuardatoPlato(plato.value,txtImporte.value)">
               Cargar Plato
             </button>
           </div>
@@ -172,9 +172,9 @@
               <th>Plato</th>
               <th>Costo</th>
             </thead>
-            <tbody>
-              <td></td>
-              <td></td>
+            <tbody *ngFor="let plato of datoPlato; let i=index">
+                <td> {{plato.nombrePlato}}</td>
+                <td> {{plato.importe}}</td>
             </tbody>
           </table>
         </div>
